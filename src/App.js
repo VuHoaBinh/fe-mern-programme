@@ -1,8 +1,8 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import GoalList from "./components/GoalList.js";
-
+import GoalList from "./components/GoalList/GoalList";
+import NewGoal from "./components/NewGoal/NewGoal";
 function App() {
   const ListGoal = [
     {
@@ -20,6 +20,11 @@ function App() {
     },
   ];
   return (
+
+    const onAddGoalHandler = (newGoalfromNewGoal) => {
+      ListGoal.push(newGoalfromNewGoal);
+      console.log(ListGoal);
+    };
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
@@ -35,7 +40,8 @@ function App() {
           Learn React
         </a>
         <h1 title="Hello bình">Hello World! </h1>
-        <GoalList goal={ListGoal} />
+        <NewGoal onAddGoal={onAddGoalHandler} />
+        <GoalList goals={ListGoal} />
       </header>
     </div>
   );
