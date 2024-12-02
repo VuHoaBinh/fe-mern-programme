@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import GoalList from "./components/GoalList/GoalList";
 import NewGoal from "./components/NewGoal/NewGoal";
 function App() {
-  const ListGoal = [
+  const [ListGoal, setListGoal] = useState([
     {
       id: "1",
       name: "Goal 1",
@@ -18,13 +18,15 @@ function App() {
       id: "3",
       name: "Goal 3",
     },
-  ];
-  return (
+  ]);
 
-    const onAddGoalHandler = (newGoalfromNewGoal) => {
-      ListGoal.push(newGoalfromNewGoal);
-      console.log(ListGoal);
-    };
+  const onAddGoalHandler = (newGoalfromNewGoal) => {
+    // ListGoal.push(newGoalfromNewGoal);
+    // setListGoal((ListGoal) => [...ListGoal, newGoalfromNewGoal]);
+    setListGoal((prevListGoal) => prevListGoal.concat(newGoalfromNewGoal));
+    console.log(ListGoal);
+  };
+  return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
