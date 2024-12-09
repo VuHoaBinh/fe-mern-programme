@@ -1,7 +1,7 @@
 import React from "react";
 // import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter, Routes, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./user/pages/Users";
 import NewPlaces from "./places/pages/NewPlaces";
 // import GoalList from "./components/GoalList/GoalList";
@@ -56,10 +56,8 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Switch>
-          <Route path="/" element={<Users />} exact />
-          <Route path="/places/new" element={<NewPlaces />} />
-        </Switch>
+        <Route path="/" element={<Users />} exact />
+        <Route path="/places/new" element={<NewPlaces />} />
       </Routes>
     </BrowserRouter>
   );
