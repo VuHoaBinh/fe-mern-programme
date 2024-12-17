@@ -4,6 +4,22 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./user/pages/Users";
 import NewPlaces from "./places/pages/NewPlaces";
+import Header from "./shared/components/Navigation/Header";
+
+function App() {
+  return (
+    <BrowserRouter>
+      <Header />
+      <main>
+        <Routes>
+          <Route path="/" element={<Users />} exact />
+          <Route path="/places/new" element={<NewPlaces />} />
+        </Routes>
+      </main>
+    </BrowserRouter>
+  );
+}
+export default App;
 // import GoalList from "./components/GoalList/GoalList";
 // import NewGoal from "./components/NewGoal/NewGoal";
 // function App() {
@@ -51,15 +67,3 @@ import NewPlaces from "./places/pages/NewPlaces";
 //     </div>
 //   );
 // }
-
-function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Users />} exact />
-        <Route path="/places/new" element={<NewPlaces />} />
-      </Routes>
-    </BrowserRouter>
-  );
-}
-export default App;
