@@ -4,7 +4,7 @@ import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Users from "./user/pages/Users";
 import NewPlaces from "./places/pages/NewPlaces";
-import Header from "./shared/components/Navigation/Header";
+import Header from "./shared/components/Navigation/MainHeader";
 
 function App() {
   return (
