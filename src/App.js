@@ -1,69 +1,25 @@
-import React from "react";
-// import logo from "./logo.svg";
-import "./App.css";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Users from "./user/pages/Users";
-import NewPlaces from "./places/pages/NewPlaces";
-import Header from "./shared/components/Navigation/MainHeader";
+import React from 'react';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-function App() {
+import Users from './user/pages/Users';
+import NewPlace from './places/pages/NewPlace';
+import UserPlaces from './places/pages/UserPlaces';
+import MainNavigation from './shared/components/Navigation/MainNavigation';
+
+const App = () => {
   return (
     <BrowserRouter>
-      <Header />
+      <MainNavigation />
       <main>
         <Routes>
-          <Route path="/" element={<Users />} exact />
-          <Route path="/places/new" element={<NewPlaces />} />
+          <Route path="/" element={<Users />} exact/>
+          <Route path="/:userId/places" element={<UserPlaces />} exact/>
+          <Route path="/places/new" element={<NewPlace />} exact/>
+          {/* <Redirect to="/" /> */}
         </Routes>
       </main>
     </BrowserRouter>
   );
-}
-export default App;
-// import GoalList from "./components/GoalList/GoalList";
-// import NewGoal from "./components/NewGoal/NewGoal";
-// function App() {
-//   const [ListGoal, setListGoal] = useState([
-//     {
-//       id: "1",
-//       name: "Goal 1",
-//     },
-//     {
-//       id: "2",
-//       name: "Goal 2",
-//     },
-//     ,
-//     {
-//       id: "3",
-//       name: "Goal 3",
-//     },
-//   ]);
+};
 
-//   const onAddGoalHandler = (newGoalfromNewGoal) => {
-//     // ListGoal.push(newGoalfromNewGoal);
-//     // setListGoal((ListGoal) => [...ListGoal, newGoalfromNewGoal]);
-//     setListGoal((prevListGoal) => prevListGoal.concat(newGoalfromNewGoal));
-//     console.log(ListGoal);
-//   };
-//   return (
-//     <div className="App">
-//       <header className="App-header">
-//         <img src={logo} className="App-logo" alt="logo" />
-//         <p>
-//           Edit <code>src/App.js</code> and save to reload.
-//         </p>
-//         <a
-//           className="App-link"
-//           href="https://reactjs.org"
-//           target="_blank"
-//           rel="noopener noreferrer"
-//         >
-//           Learn React
-//         </a>
-//         <h1 title="Hello bình">Hello World! </h1>
-//         <NewGoal onAddGoal={onAddGoalHandler} />
-//         <GoalList goals={ListGoal} />
-//       </header>
-//     </div>
-//   );
-// }
+export default App;
