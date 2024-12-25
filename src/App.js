@@ -1,39 +1,26 @@
-import React from 'react';
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from 'react-router-dom';
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Users from './user/pages/Users';
-import NewPlace from './places/pages/NewPlace';
-import UserPlaces from './places/pages/UserPlaces';
-import UpdatePlace from './places/pages/UpdatePlace';
-import MainNavigation from './shared/components/Navigation/MainNavigation';
-
+import Users from "./user/pages/Users";
+import NewPlace from "./places/pages/NewPlace";
+import UserPlaces from "./places/pages/UserPlaces";
+import MainNavigation from "./shared/components/Navigation/MainNavigation";
+import UpdatePlace from "./places/pages/UpdatePlace";
 const App = () => {
   return (
-    <Router>
+    <BrowserRouter>
       <MainNavigation />
       <main>
-        <Switch>
-          <Route path="/" exact>
-            <Users />
-          </Route>
-          <Route path="/:userId/places" exact>
-            <UserPlaces />
-          </Route>
-          <Route path="/places/new" exact>
-            <NewPlace />
-          </Route>
-          <Route path="/places/:placeId">
-            <UpdatePlace />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
+        <Routes>
+          <Route path="/" element={<Users />} exact />
+          <Route path="/:userId/places" element={<UserPlaces />} exact />
+          <Route path="/places/new" element={<NewPlace />} exact />
+          <Route path="/places/:placeId" element={<UpdatePlace />} exact />
+
+          {/* <Redirect to="/" /> */}
+        </Routes>
       </main>
-    </Router>
+    </BrowserRouter>
   );
 };
 
